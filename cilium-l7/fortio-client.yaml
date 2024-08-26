@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortio-client
+  labels:
+    app: fortio-client
+spec:
+  restartPolicy: Never
+  containers:
+  - name: fortio
+    image: fortio/fortio:latest_release
+    imagePullPolicy: Always
+    args:
+      - load
+      - -t
+      - "5m"
+      - -c
+      - "16"
+      - -qps
+      - "10000"
+      - "-json"
+      - "-"
+      - http://fortio:8080/echo?size=5000
