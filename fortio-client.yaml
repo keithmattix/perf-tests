@@ -17,7 +17,7 @@ spec:
       - -c
       - "16"
       - -qps
-      - "0"
+      - "5500"
       - "-json"
       - "-"
       - http://fortio:8080/echo?size=5000
